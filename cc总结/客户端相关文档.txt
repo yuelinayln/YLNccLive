@@ -1,0 +1,32 @@
+到时候你自己吧这些图片  还有名称什么的改改
+打包的目录呢？
+以后都放到这个目录下吧，这样脚本就不用改了
+这个就是安装包
+下载一个chinese.isl文件放到inno setup按照目录下可以汉化
+yunclass://index/talker/?roomid=D4B2D3029F96AEC09C33DC5901307461+userid=B27039502337407C+username=1+password=111+autoLogin=true+language=zh+sessionid=C8529A33EB9616123DAF76DEB6BE4E307876F906F9EEBD6FC17981C6A5D5377924AB63550962BD69C8416F1E8EEF684C
+这个就是启动协议，把这个包裹到前端就可以唤起客户端了，参数什么的自己定义一下，代码里面接住参数，应该就可以了
+yunclass:// 就是启动协议  现在不好用 是因为什么呀
+怎么不好用，你的界面不就是这样吗
+一样的啊
+我大概理解了一下 我首先需要把链接写对了，其次  yunclass://index/talker/?roomid=D4B2D3029F96AEC09C33DC5901307461+userid=B27039502337407C+username=1+password=111+autoLogin=true+language=zh+sessionid=C8529A33EB9616123DAF76DEB6BE4E307876F906F9EEBD6FC17981C6A5D5377924AB63550962BD69C8416F1E8EEF684C  这些是写到js文件里面的他会自行判断为非chrome浏览器？
+据我了解，好像前端需要自己检测是 是不是谷歌浏览器，如果不是，再提示用户下载这个客户端，还有一个启动客户端的按钮，点击按钮后调用 yunclass:// ...这个协议，唤起客户端
+yunclass:// 前面这些我不动 只修改我需要的参数？是的
+你可以参考我们的页面，一个下载链接，一个启动链接  这个启动链接好像就是嵌入的 yunclass：// 
+我如何判断客户是否安装过这个exe啊  
+不需要判断的，客户不下载安装是起不起来的如果安装过一次 下一次还需要再按 装？ 不用，装一次就行了，除非你更新安装包，客户需要重新下，对呀 那我不是就要判断客户是否安装过？
+不用，你替换掉老的包就行，升级的时候肯定是新旧兼容的
+那现在我把链接换一下 看看这个包好不好用？同时还改变 yunclass。。的参数们？
+你现在要保证 src里那个链接是正常的，那我先改改 一会再问你
+我快下班啦 
+
+你先改改。。恩 我尽快 辛苦啦
+好的。。
+
+
+使用命令打包  -   bulid   -   run   - js url链接，函数，拼接等等以及判断浏览器  -  画页面  -   点击按钮启动下载安装（测试）
+
+
+
+electron-packager.cmd ./app --overwrite --asar.unpackDir=app/plugins --platform=win32 --arch=ia32 --electron-version=2.0.5 --icon=app/favicon.ico --prune=true --ignore=app/plugins/PepperFlashPlayer.plugin/* --ignore=node_modules/electron-* --ignore=node_modules/.bin --ignore=.git --ignore=dist --out=packagers/ --version-string.CompanyName='北京千百课网络技术有限公司' --version-string.FileDescription='xmt' --version-string.ProductName='xmt'
+
+C:\Users\yuelina\AppData\Roaming\xmt\logs  这是日志目录  记下哦恩
